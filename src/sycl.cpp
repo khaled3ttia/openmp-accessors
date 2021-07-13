@@ -59,6 +59,10 @@ int main(){
 		}else{
 			std::cout << host_accessor[i] << "\t";
 		}
-	}	
+	}
+
+	delete [] a;
+	delete [] b;
+	delete [] c;	
 }
 

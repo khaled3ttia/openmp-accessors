@@ -32,4 +32,8 @@ int main(){
     std::cout << "C: " ;
     printVector(c, 0, NROWS*NCOLS);
 
+
+    delete [] a;
+    delete [] b;
+    delete [] c;
 }
