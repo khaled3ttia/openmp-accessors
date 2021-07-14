@@ -1,23 +1,25 @@
+// enum to hold different access modes
 enum access_mode{READ, WRITE, READ_WRITE};
-template <typename T>
+
+// Accessor Class Declaration
+template <access_mode A, typename T>
 class Accessor {
 	
-private:
-	T* _data; 
-    size_t _len; 
-	access_mode _mode;
-
+// _data and _len need to be public to be used in declare mapper
 public:
-	Accessor(T*, size_t,  access_mode=READ_WRITE);
-    T* getData();
-    size_t getLen();
-	access_mode getMode();
-	void setData(T*);
-    void setLength(size_t);
-	void setMode(access_mode);
-    T& operator [](int);
+    // pointer to the data
+	T* _data;   
+    // length of data
+    size_t _len; 
+    // ctor
+	Accessor(T*, size_t);
 
-#pragma omp declare mapper(Accessor<double> a) map(a, a._data[0:a._len])
+    T& operator [](int);
 };
+
+// different mappers based on access mode
+#pragma omp declare mapper(Accessor<READ, double> a) map(to: a._data[0:a._len]) 
+#pragma omp declare mapper(Accessor<WRITE, double> a) map(from: a._data[0:a._len])
+#pragma omp declare mapper(Accessor<READ_WRITE, double> a) map(tofrom: a._data[0:a._len])
 
 #include "accessor_impl.h"
