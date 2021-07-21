@@ -15,11 +15,11 @@ namespace libompx {
     public:
         // _data and _len need to be public to be used in declare mapper
         // pointer to the data
-        T* _data;   
+        T* const _data;   
         // length of data
         size_t _len;
         
-        size_t getLen(){ return _len; };
+        size_t getLen() const{ return _len; };
          
     };
 
@@ -28,6 +28,9 @@ namespace libompx {
     class Accessor: public Accessor_Base<A, T>{
     public:
         Accessor(T* data, size_t len): Accessor_Base<A, T>(data, len){ };
+
+        T* getData() const{ return this->_data; };
+
         // operator returns a reference
         // To allow data maniuplation in WRITE/READ_WRITE modes
         T& operator[](const int idx) const { return this->_data[idx]; };
@@ -38,6 +41,8 @@ namespace libompx {
     class Accessor<READ, T>: public Accessor_Base<READ, T>{
     public:
         Accessor(T* data, size_t len): Accessor_Base<READ, T>(data, len) {};
+        
+        const T* getData() const { return this->_data; };
 
         // operator returns a const reference to prevent modification
         const T& operator[](const int idx) const { return this->_data[idx]; };
