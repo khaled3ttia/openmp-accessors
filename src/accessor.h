@@ -1,3 +1,18 @@
+//=== libompx/accessor.h - Accessor class definition ----*- C++ -*-===//
+//
+// Part of the OMP-UL Project, under the MIT License.
+// See LICENSE.txt for license information
+//
+//===-------------------------------------------------------------===//
+///
+/// \file
+/// This file contains the declaration of the Accessor class, which is
+/// used to wrap dynamically allocated regions pointers to provide 
+/// transparent data movement through OpenMP declare mapper
+///
+//===-------------------------------------------------------------===//
+
+
 #ifndef LIBOMPX_ACCESSOR_H
 #define LIBOMPX_ACCESSOR_H
 
