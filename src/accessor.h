@@ -96,3 +96,5 @@ namespace libompx {
 #pragma omp declare mapper(libompx::Accessor<libompx::READ_WRITE, int> a) map(tofrom: a._data[0:a._len])
 
 #endif
+
+///===--- vim: set ft=cpp sw=2 ts=2 sts=2 et: ----------------------===///
