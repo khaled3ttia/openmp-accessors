@@ -1,5 +1,5 @@
-#ifndef ACCESSOR_H
-#define ACCESSOR_H
+#ifndef LIBOMPX_ACCESSOR_H
+#define LIBOMPX_ACCESSOR_H
 
 namespace libompx {
     
