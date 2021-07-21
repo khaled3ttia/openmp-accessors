@@ -17,7 +17,10 @@ namespace libompx {
         // pointer to the data
         T* _data;   
         // length of data
-        size_t _len; 
+        size_t _len;
+        
+        size_t getLen(){ return _len; };
+         
     };
 
     // Child Accessor 1: All access modes except for READ
