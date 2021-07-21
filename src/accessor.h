@@ -20,7 +20,10 @@ namespace libompx {
         size_t _len;
         
         size_t getLen() const{ return _len; };
-         
+        
+        const T* begin() const { return _data; };
+
+        const T* end() const { return _data+_len; };
     };
 
     // Child Accessor 1: All access modes except for READ
