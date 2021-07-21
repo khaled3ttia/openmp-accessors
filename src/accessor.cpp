@@ -6,7 +6,7 @@
 
 constexpr int NROWS = 1;
 constexpr int NCOLS = 10;
-
+using namespace libompx;
 int main(){
    
 
