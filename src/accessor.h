@@ -1,3 +1,6 @@
+#ifndef ACCESSOR_H
+#define ACCESSOR_H
+
 namespace libompx {
     
     // enum to hold different access modes
@@ -51,4 +54,4 @@ namespace libompx {
 #pragma omp declare mapper(libompx::Accessor<libompx::WRITE, int> a) map(from: a._data[0:a._len])
 #pragma omp declare mapper(libompx::Accessor<libompx::READ_WRITE, int> a) map(tofrom: a._data[0:a._len])
 
-
+#endif
