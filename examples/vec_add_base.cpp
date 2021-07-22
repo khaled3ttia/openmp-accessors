@@ -9,16 +9,16 @@ constexpr int NCOLS = 10;
 int main(){
    
 
-    double* a = new double[NROWS * NCOLS];
-    double* b = new double[NROWS * NCOLS];
-    double* c = new double[NROWS * NCOLS];
+    int* a = new int[NROWS * NCOLS];
+    int* b = new int[NROWS * NCOLS];
+    int* c = new int[NROWS * NCOLS];
 
-    generateMatrix(NROWS, NCOLS, 0.7, a);
+    generateIntMatrix(NROWS, NCOLS, 0.7, a);
     std::cout << "A: " ;
     printVector(a, 0, NROWS*NCOLS);
     
 
-    generateMatrix(NROWS, NCOLS, 0.2, b);
+    generateIntMatrix(NROWS, NCOLS, 0.2, b);
     std::cout << "B: " ;
     printVector(b, 0, NROWS*NCOLS);
 

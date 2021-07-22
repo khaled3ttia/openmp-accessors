@@ -1,8 +1,7 @@
-#include <random>
 #include <iostream>
 #include <omp.h>
 #include "utils.h"
-#include "accessor.h"
+#include "Accessor.h"
 
 constexpr int NROWS = 1;
 constexpr int NCOLS = 10;
@@ -10,23 +9,23 @@ using namespace libompx;
 int main(){
    
 
-    double* a = new double[NROWS * NCOLS];
-    double* b = new double[NROWS * NCOLS];
-    double* c = new double[NROWS * NCOLS];
+    int* a = new int[NROWS * NCOLS];
+    int* b = new int[NROWS * NCOLS];
+    int* c = new int[NROWS * NCOLS];
 
-    generateMatrix(NROWS, NCOLS, 0.7, a);
+    generateIntMatrix(NROWS, NCOLS, 0.7, a);
     std::cout << "A: " ;
     printVector(a, 0, NROWS*NCOLS);
 
     
-    generateMatrix(NROWS, NCOLS, 0.5, b);
+    generateIntMatrix(NROWS, NCOLS, 0.5, b);
     std::cout << "B: " ;
     printVector(b, 0, NROWS*NCOLS);
 
 
-    Accessor<READ, double> acc_a(a, NROWS*NCOLS); 
-    Accessor<READ, double> acc_b(b, NROWS*NCOLS);
-    Accessor<WRITE, double> acc_c(c, NROWS*NCOLS);
+    Accessor<READ, int> acc_a(a, NROWS*NCOLS); 
+    Accessor<READ, int> acc_b(b, NROWS*NCOLS);
+    Accessor<READ_WRITE, int> acc_c(c, NROWS*NCOLS);
 
 #pragma omp target teams distribute parallel for 
     for (int i = 0; i < NROWS*NCOLS; i++){

@@ -15,25 +15,25 @@ int main(){
 	std::cout << "Selected Device: " << Queue.get_device().get_info<sycl::info::device::name>() << "\n";
 
 	// Host data
-	double* a = new double[NROWS * NCOLS];
-	double* b = new double[NROWS * NCOLS];
-	double* c = new double[NROWS * NCOLS];
+	int* a = new int[NROWS * NCOLS];
+	int* b = new int[NROWS * NCOLS];
+	int* c = new int[NROWS * NCOLS];
 
 	// generate A matrix (on host)
-	generateMatrix(NROWS, NCOLS, 0.7, a);
+	generateIntMatrix(NROWS, NCOLS, 0.7, a);
 	std::cout << "A: "; 	
 	printVector(a, 0, NROWS*NCOLS);
 
 	// generate B matrix (on host)
-	generateMatrix(NROWS, NCOLS, 0.2, b);
+	generateIntMatrix(NROWS, NCOLS, 0.2, b);
 	std::cout << "B: ";
 	printVector(b, 0, NROWS*NCOLS);
 
 	// Create Buffers around A, B, and C in order to access them 
 	// from devices
-	buffer<double> bufA = sycl::buffer(a, sycl::range(NROWS*NCOLS));
-	buffer<double> bufB = sycl::buffer(b, sycl::range(NROWS*NCOLS));
-	buffer<double> bufC = sycl::buffer(c, sycl::range(NROWS*NCOLS));
+	buffer<int> bufA = sycl::buffer(a, sycl::range(NROWS*NCOLS));
+	buffer<int> bufB = sycl::buffer(b, sycl::range(NROWS*NCOLS));
+	buffer<int> bufC = sycl::buffer(c, sycl::range(NROWS*NCOLS));
 
 	// Submit work to the GPU queue
 	Queue.submit([&](handler &h){
