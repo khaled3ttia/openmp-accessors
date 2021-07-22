@@ -9,9 +9,10 @@ Instead, users can directly create an `Accessor` object around their data pointe
     // initialize data here as needed
     Accessor<READ, double> data_Acc(data, N);
 
-In the previous example, an `Accessor` object around `data` is instaniated, with the `READ` access mode
+In the previous example, an `Accessor` object around `data` is instaniated, with the `READ` access mode.
 Now, the user can use OpenMP target directive without needing to write a map clause for `data` or `data_Acc` as follows:
-    #pragma omp target teams distribute parallel for
+    
+    \#pragma omp target teams distribute parallel for
     // device region code that reads from data_Acc 
 
 ## How it works?
