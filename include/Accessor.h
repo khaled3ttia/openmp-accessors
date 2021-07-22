@@ -1,4 +1,4 @@
-//=== libompx/accessor.h - Accessor class definition ----*- C++ -*-===//
+//=== libompx/Accessor.h - Accessor class definition ----*- C++ -*-===//
 //
 // Part of the OMP-UL Project, under the MIT License.
 // See libompx/LICENSE.txt for license information
