@@ -1,0 +1,7 @@
+typedef struct NAME(acc_){ 
+    TYPE *data; 
+    size_t len; 
+    } NAME(accessor_);
+
+#pragma omp declare mapper(NAME(accessor_) a) map(K: a.data[0:a.len])
+
